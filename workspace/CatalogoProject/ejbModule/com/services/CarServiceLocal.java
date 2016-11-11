@@ -1,0 +1,17 @@
+package com.services;
+
+import java.util.List;
+
+import javax.ejb.Local;
+
+import com.entities.Carro;
+
+@Local
+public interface CarServiceLocal {
+ public List<Carro> getcarros();
+ public Carro getCarroById(final Long id);
+ public void addCarro(final String nombre, final String ean, final String year, final String quantity);
+ public String updateCarro(final Long id);
+ public Carro getCarroById1(Long id);
+ public String updateCarro1(final Long id);
+}

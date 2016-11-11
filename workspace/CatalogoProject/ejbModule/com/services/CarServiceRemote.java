@@ -1,0 +1,15 @@
+package com.services;
+
+import java.util.List;
+
+import javax.ejb.Remote;
+
+import com.entities.Carro;
+
+@Remote
+public interface CarServiceRemote {
+	 public List<Carro> getcarros();
+	 public Carro getCarroById(final Long id);
+	 public void addCarro(final String nombre, final String ean, final String year, final String quantity);
+	 public String updateCarro(final Long id);
+}

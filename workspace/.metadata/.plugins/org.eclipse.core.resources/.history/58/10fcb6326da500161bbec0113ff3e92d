@@ -1,0 +1,38 @@
+package com.webservices;
+
+import java.util.List;
+
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+import com.entities.Producto;
+import com.services.CarServiceLocal;
+import com.services.ProductServiceLocal;
+@Stateless
+@Path("/catalogo")
+public class CatalogRestService {
+	@EJB
+	ProductServiceLocal prodServices;
+	
+	@EJB
+	CarServiceLocal carServices;
+	
+	@GET
+	@Path("productos")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Producto> productos(){
+		return prodServices.getProductos();
+	}	
+	
+	@GET
+	@Path("carros")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Producto> carros(){
+		return prodServices.getProductos();
+	}	
+	
+}

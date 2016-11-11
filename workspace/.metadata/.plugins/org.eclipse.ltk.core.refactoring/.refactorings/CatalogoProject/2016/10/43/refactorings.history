@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;CatalogoProject/ejbModule/com/javeriana&apos; to &apos;entities&apos;" description="Rename resource &apos;javeriana&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="ejbModule/com/javeriana" name="entities" stamp="1477199781207" updateReferences="true"/>
+</session>

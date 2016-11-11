@@ -1,0 +1,8 @@
+INDEX VERSION 1.3+/Users/karinasamper/Documents/workspace/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+959944749.index
+4121905337.index
+729364868.index
+3805564898.index
+612013949.index
+445421519.index
+2634477984.index

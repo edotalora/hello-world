@@ -1,0 +1,26 @@
+package com.webservices;
+
+import java.util.List;
+
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+import com.entities.Producto;
+import com.services.ProductServiceLocal;
+@Stateless
+public class CatalogRestService {
+	@EJB
+	ProductServiceLocal prodServices;
+	
+	@GET
+	@Path(value = "/productos")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Producto> productos(){
+		return prodServices.getProductos();
+	}	
+	
+}

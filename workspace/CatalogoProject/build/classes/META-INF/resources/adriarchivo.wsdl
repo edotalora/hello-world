@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:ns1="http://schemas.xmlsoap.org/soap/http"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://webservices.com/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	name="CatalogServiceService" targetNamespace="http://webservices.com/">
+	<wsdl:types>
+		<xs:schema xmlns:tns="http://webservices.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			elementFormDefault="unqualified" targetNamespace="http://webservices.com/"
+			version="1.0">
+			<xs:element name="productos" type="tns:productos" />
+			<xs:element name="productosResponse" type="tns:productosResponse" />
+			<xs:complexType name="productos">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="prodName" type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="productosResponse">
+				<xs:sequence>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="return"
+						type="tns:producto" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="producto">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="id" type="xs:long" />
+					<xs:element minOccurs="0" name="name" type="xs:string" />
+					<xs:element name="price" type="xs:double" />
+				</xs:sequence>
+			</xs:complexType>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="productosResponse">
+		<wsdl:part element="tns:productosResponse" name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="productos">
+		<wsdl:part element="tns:productos" name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="CatalogService">
+		<wsdl:operation name="productos">
+			<wsdl:input message="tns:productos" name="productos"></wsdl:input>
+			<wsdl:output message="tns:productosResponse" name="productosResponse"></wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="CatalogServiceServiceSoapBinding"
+		type="tns:CatalogService">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="productos">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="productos">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="productosResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="CatalogServiceService">
+		<wsdl:port binding="tns:CatalogServiceServiceSoapBinding"
+			name="CatalogServicePort">
+			<soap:address location="http://localhost:8080/CatalogoProject/CatalogService" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
